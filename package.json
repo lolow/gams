@@ -1,0 +1,26 @@
+{
+    "name": "gams",
+    "displayName": "gms",
+    "description": "GAMS language",
+    "version": "0.0.1",
+    "publisher": "lolow",
+    "engines": {
+        "vscode": "^1.16.0"
+    },
+    "categories": [
+        "Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "gams",
+            "aliases": ["Gams", "gams"],
+            "extensions": [".gms",".inc"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "gams",
+            "scopeName": "source.gms",
+            "path": "./syntaxes/Gams.tmLanguage"
+        }]
+    }
+}
