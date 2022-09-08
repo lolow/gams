@@ -13,15 +13,15 @@ GAMS is the property of GAMS Software GmbH (http://www.gams.com).
 In GAMS, by default, block comments are delineated by **$ONTEXT**/**$OFFTEXT**, 
 and line comments are started by a star **\***.
 
-This package also adds the comment highlighting for end of line **#** and **//**,
-and the inline comments delineated by curly brackets: **{** **}** or in C-style with **/\*\* \*\*/**.
+This package also adds the comment highlighting for end of line **#**, **!!** and **//**,
+and the inline comments delineated by **/\*\* \*\*/**.
 
 In order to GAMS to process these new comment conventions,
 you need to add in your code some of these commands:
 
 	$eolcom //
 	$eolcom #
-	$inlinecom {}
+	$eolcom !!
 	$inlinecom /* */
 
 ## Known Issues
