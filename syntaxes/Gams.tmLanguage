@@ -134,7 +134,7 @@
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.control.gms</string>
+					<string>storage.type.gms</string>
 				</dict>
 			</dict>
 			<key>end</key>
@@ -306,7 +306,7 @@
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.control.gms</string>
+					<string>storage.type.gms</string>
 				</dict>
 			</dict>
 			<key>end</key>
@@ -337,7 +337,7 @@
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.control.gms</string>
+					<string>storage.type.gms</string>
 				</dict>
 			</dict>
 			<key>end</key>
@@ -383,13 +383,18 @@
 		<key>set</key>
 		<dict>
 			<key>begin</key>
-			<string>(?i)(^|;)\s*\b((SINGLETON )?SETS?)\s+</string>
+			<string>(?i)(^|;)\s*\b(SINGLETON\s+)?\b(SETS?)\s+</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.control.gms</string>
+					<string>storage.modifier.gms</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>storage.type.gms</string>
 				</dict>
 			</dict>
 			<key>end</key>
@@ -454,7 +459,7 @@
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.control.gms</string>
+					<string>storage.type.gms</string>
 				</dict>
 			</dict>
 			<key>end</key>
@@ -472,13 +477,18 @@
 		<key>variable</key>
 		<dict>
 			<key>begin</key>
-			<string>(?i)(^|;)\s*(\b(VARIABLES?)|(\bPOSITIVE\s+VARIABLES?))\s+</string>
+			<string>(?i)(^|;)\s*\b((POSITIVE|FREE|NEGATIVE)\s+)?\b(VARIABLES?)</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.control.gms</string>
+					<string>storage.modifier.gms</string>
+				</dict>
+				<key>4</key>
+				<dict>
+					<key>name</key>
+					<string>storage.type.gms</string>
 				</dict>
 			</dict>
 			<key>end</key>
