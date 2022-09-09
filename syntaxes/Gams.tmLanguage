@@ -246,7 +246,7 @@
 		<key>keyword</key>
 		<dict>
 			<key>match</key>
-			<string>(?i)\b(ABORT|ACRONYMS?|ALIAS|ALL|AND|ASSIGN|BINARY|CARD|DISPLAY|EPS|EQ|GE|GT|INF|INTEGER|LE|LOOP|LT|MAXIMIZING|MINIMIZING|MODELS?|NA|NE|NEGATIVE|NOT|OPTION|OPTIONS|OR|ORD|PROD|SMAX|SMIN|SOS1|SOS2|SUM|SYSTEM|TABLE|USING|XOR|YES|REPEAT|UNTIL|WHILE|IF|THEN|ELSE|SEMICONT|SEMIINT|FILES?|PUT|PUTPAGE|PUTTL|PUTCLOSE|FREE|NO|SOLVE|FOR|ELSEIF)\b</string>
+			<string>(?i)\b(ABORT|ACRONYMS?|ALIAS|ALL|AND|ASSIGN|BINARY|CARD|DISPLAY|EPS|EQ|GE|GT|INF|INTEGER|LE|LOOP|LT|MAXIMIZING|MINIMIZING|MODELS?|NA|NE|NEGATIVE|NOT|OPTION|OPTIONS|OR|ORD|PROD|SMAX|SMIN|SOS1|SOS2|SUM|SYSTEM|TABLE|USING|XOR|YES|REPEAT|UNTIL|WHILE|IF|THEN|ELSE|SEMICONT|SEMIINT|FILES?|PUT|PUTPAGE|PUTTL|PUTCLOSE|FREE|NO|SOLVE|FOR|ELSEIF|EXECUTE_(UN)?LOAD)\b</string>
 			<key>name</key>
 			<string>keyword.control.gms</string>
 		</dict>
@@ -282,7 +282,7 @@
 		<key>operator</key>
 		<dict>
 			<key>match</key>
-			<string>(\b(and|or|not)\b)|(\+|-|%|#|\*|\/|\*\*|=|&lt;=?|&gt;=?)</string>
+			<string>(\b(and|or|not)\b)|(\+|-|%|#|\*|\/|\*\*|=|&lt;=?|&gt;=?|\$)</string>
 			<key>name</key>
 			<string>keyword.operator.gams</string>
 		</dict>
@@ -430,7 +430,7 @@
 		<key>suffix</key>
 		<dict>
 			<key>match</key>
-			<string>(?i)\.(L|LO|UP|FX|SCALE|PRIOR|PC|PS|PW|TM|BM|CASE|DATE|IFILE|OFILE|PAGE|RDATE|RFILE|RTIME|SFILE|TIME|TITLE|TS|TL|TE|TF|LJ|NJ|SJ|TJ|LW|NW|SW|TW|ND|NR|NZ|CC|HDCC|TLCC|LL|HDLL|TLLL|LP|WS)\b</string>
+			<string>(?i)\.(L|LO|UP|FX|SCALE|VAL|PRIOR|PC|PS|PW|TM|BM|CASE|DATE|IFILE|OFILE|PAGE|RDATE|RFILE|RTIME|SFILE|TIME|TITLE|TS|TL|TE|TF|LJ|NJ|SJ|TJ|LW|NW|SW|TW|ND|NR|NZ|CC|HDCC|TLCC|LL|HDLL|TLLL|LP|WS)\b</string>
 			<key>name</key>
 			<string>keyword.gms</string>
 		</dict>
