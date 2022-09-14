@@ -2,8 +2,12 @@
     "name": "gams",
     "displayName": "gms",
     "description": "GAMS language",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "publisher": "lolow",
+    "repository": {
+       "type": "git",
+       "url": "git://github.com/lolow/gams.git"
+    },
     "engines": {
         "vscode": "^1.16.0"
     },

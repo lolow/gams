@@ -24,10 +24,6 @@ you need to add in your code some of these commands:
 	$eolcom !!
 	$inlinecom /* */
 
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
 ## Support
 
-Any remarks, suggestion about the syntax highlighting have to be adressed to the author `Laurent Drouet`.
+Please open an issue in the repository at https://github.com/lolow/gams.

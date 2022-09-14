@@ -1,7 +1,13 @@
 # Change Log
-All notable changes to the "gams" extension will be documented in this file.
-
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
 ## [Unreleased]
-- Initial release
+
+## [0.1.1] - 2017
+- Many fixes/updates brought from Jean Fouré, listed below
+- Added missing keywords
+- Added double dollars
+- removed curly comments
+- Various fixes 
+
+## [0.0.1] - 2017
+- Port of the sublime text extension
