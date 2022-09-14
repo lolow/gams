@@ -2,7 +2,7 @@
     "name": "gams",
     "displayName": "gms",
     "description": "GAMS language",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "publisher": "lolow",
     "repository": {
        "type": "git",
