@@ -72,11 +72,11 @@
 		<key>blockcomment</key>
 		<dict>
 			<key>begin</key>
-			<string>(?i)^\$ONTEXT</string>
+			<string>(?i)(^\$|\$\$)ONTEXT</string>
 			<key>contentName</key>
 			<string>comment.block.documentation.gms</string>
 			<key>end</key>
-			<string>(?i)^\$OFFTEXT</string>
+			<string>(?i)(^\$|\$\$)OFFTEXT</string>
 			<key>name</key>
 			<string>keyword.control.gms</string>
 		</dict>
@@ -90,17 +90,6 @@
 			<string>\*/</string>
 			<key>name</key>
 			<string>comment.slashstar.gms</string>
-		</dict>
-		<key>blockcommentcurly</key>
-		<dict>
-			<key>begin</key>
-			<string>{</string>
-			<key>contentName</key>
-			<string>comment.block.documentation.gms</string>
-			<key>end</key>
-			<string>}</string>
-			<key>name</key>
-			<string>comment.curly.gms</string>
 		</dict>
 		<key>doublequotestring</key>
 		<dict>
@@ -145,7 +134,7 @@
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.control.gms</string>
+					<string>storage.type.gms</string>
 				</dict>
 			</dict>
 			<key>end</key>
@@ -208,8 +197,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>^(\*).*$
-?</string>
+			<string>^(\*).*$</string>
 			<key>name</key>
 			<string>comment.line.star.gms</string>
 		</dict>
@@ -220,10 +208,6 @@
 				<dict>
 					<key>include</key>
 					<string>#blockcomment</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#blockcommentcurly</string>
 				</dict>
 				<dict>
 					<key>include</key>
@@ -240,6 +224,10 @@
 				<dict>
 					<key>include</key>
 					<string>#number</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#specialnumber</string>
 				</dict>
 				<dict>
 					<key>include</key>
@@ -262,7 +250,7 @@
 		<key>keyword</key>
 		<dict>
 			<key>match</key>
-			<string>(?i)\b(ABORT|ACRONYMS?|ALIAS|ALL|AND|ASSIGN|BINARY|CARD|DISPLAY|EPS|EQ|GE|GT|INF|INTEGER|LE|LOOP|LT|MAXIMIZING|MINIMIZING|MODELS?|NA|NE|NEGATIVE|NOT|OPTION|OPTIONS|OR|ORD|PROD|SMAX|SMIN|SOS1|SOS2|SUM|SYSTEM|TABLE|USING|XOR|YES|REPEAT|UNTIL|WHILE|IF|THEN|ELSE|SEMICONT|SEMIINT|FILES?|PUT|PUTPAGE|PUTTL|PUTCLOSE|FREE|NO|SOLVE|FOR|ELSEIF)\b</string>
+			<string>(?i)\b(ABORT|ACRONYMS?|ALIAS|ALL|AND|ASSIGN|BINARY|CARD|DISPLAY|EPS|EQ|GE|GT|INTEGER|LE|LOOP|LT|MAXIMIZING|MINIMIZING|MODELS?|NA|NE|NEGATIVE|NOT|OPTION|OPTIONS|OR|ORD|PROD|SMAX|SMIN|SOS1|SOS2|SUM|SYSTEM|TABLE|USING|XOR|REPEAT|UNTIL|WHILE|IF|THEN|ELSE|SEMICONT|SEMIINT|FILES?|PUT|PUTPAGE|PUTTL|PUTCLOSE|FREE|SOLVE|FOR|ELSEIF|EXECUTE_(UN)?LOAD(DC)?|PUT_UTILITY|EXIST|SET|SAMEAS)\b</string>
 			<key>name</key>
 			<string>keyword.control.gms</string>
 		</dict>
@@ -277,7 +265,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>(#|//)(?!\[\[).*$\n?</string>
+			<string>(#|//|\!\!)(?!\[\[).*$\n?</string>
 			<key>name</key>
 			<string>comment.line.sharp.gms</string>
 		</dict>
@@ -295,10 +283,17 @@
 			<key>name</key>
 			<string>constant.numeric.gms</string>
 		</dict>
+		<key>specialnumber</key>
+		<dict>
+			<key>match</key>
+			<string>(?i)\b(YES|NO|INF)\b</string>
+			<key>name</key>
+			<string>constant.numeric.gms</string>
+		</dict>
 		<key>operator</key>
 		<dict>
 			<key>match</key>
-			<string>(\b(and|or|not)\b)|(\+|-|%|#|\*|\/|\*\*|=|&lt;=?|&gt;=?)</string>
+			<string>(\b(and|or|not)\b)|(\+|-|%|#|\*|\/|\*\*|=|&lt;=?|&gt;=?|\$|;)</string>
 			<key>name</key>
 			<string>keyword.operator.gams</string>
 		</dict>
@@ -311,7 +306,7 @@
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.control.gms</string>
+					<string>storage.type.gms</string>
 				</dict>
 			</dict>
 			<key>end</key>
@@ -329,7 +324,7 @@
 		<key>preprocess</key>
 		<dict>
 			<key>match</key>
-			<string>(?i)\$(ABORT|BATINCLUDE|CALL|CLEAR|CLEARERRORS?|COMMENT|COMPRESS|DECOMPRESS|DEFINTION|DOLLAR|DOUBLE|DROP|DROP(ENV|GLOBAL|LOCAL)|ECHON?|EJECT|ELSE|ELSE(IF|IFE|IFI)|ENCRYPT|ENDIF|EOLCOM|ERROR|ESCAPE|EVAL|EVAL(GLOBAL|LOCAL)|EXIT|EXPOSE|FUNCLIBIN|GOTO|GDX(IN|OUT)|HIDDEN|HIDDENCALL|HIDE|IF|IF(E|I|THEN|THENE|THENI)|INCLUDE|INLINECOM|KILL|LABEL|LIBINCLUDE|LINES|LOAD|LOAD(DC|DCM|DCR|M|R)|LOG|MACRO|(MIN|MAX)COL|MAXGOTO|(ON|OFF)DELIM|(ON|OFF)DIGIT|(ON|OFF)DOLLAR|(ON|OFF)DOTL|(ON|OFF)ECHO|(ON|OFF)EMBEDDED|(ON|OFF)EMPTY|(ON|OFF)END|(ON|OFF)EOLCOM|(ON|OFF)EPS|(ON|OFF)EXPAND|(ON|OFF)GLOBAL|(ON|OFF)INCLUDE|(ON|OFF)INLINE|(ON|OFF)LISTING|(ON|OFF)LOCAL|(ON|OFF)LOG|(ON|OFF)MACRO|(ON|OFF)MARGIN|(ON|OFF)MULTI|(ON|OFF)NESTCOM|(ON|OFF)PUT|(ON|OFF)RECURSE|(ON|OFF)SYMLIST|(ON|OFF)SYMXREF|(ON|OFF)UELLIST|(ON|OFF)UELXREF|(ON|OFF)UNDF|(ON|OFF)VERBATIM|(ON|OFF)WARNING|(ON|OFF)UPPER|PHANTOM|PREFIXPATH|PROTECT|PURGE|REMARK|SET|SET(ARGS|COMPS|DDLIST|ENV|GLOBAL|LOCAL|NAMES)|SHIFT|SHOW|SINGLE|STARS|STITLE|STOP|SYSINCLUDE|TERMINATE|TITLE|UNLOAD|USE205|USE225|USE999|VERSION|WARNING)\b</string>
+			<string>(?i)\$\$?(ABORT|BATINCLUDE|CALL|CLEAR|CLEARERRORS?|COMMENT|COMPRESS|DECOMPRESS|DEFINTION|DOLLAR|DOUBLE|DROP|DROP(ENV|GLOBAL|LOCAL)|ECHON?|EJECT|ELSE|ELSE(IF|IFE|IFI)|ENCRYPT|ENDIF|EOLCOM|ERROR|ESCAPE|EVAL|EVAL(GLOBAL|LOCAL)|EXIT|EXPOSE|FUNCLIBIN|GOTO|GDX(IN|OUT)|HIDDEN|HIDDENCALL|HIDE|IF|IF(E|I|THEN|THENE|THENI)|INCLUDE|INLINECOM|KILL|LABEL|LIBINCLUDE|LINES|LOAD|LOAD(DC|DCM|DCR|M|R)|LOG|MACRO|(MIN|MAX)COL|MAXGOTO|(ON|OFF)DELIM|(ON|OFF)DIGIT|(ON|OFF)DOLLAR|(ON|OFF)DOTL|(ON|OFF)ECHO|(ON|OFF)EMBEDDED|(ON|OFF)EMPTY|(ON|OFF)END|(ON|OFF)EOLCOM|(ON|OFF)EPS|(ON|OFF)EXPAND|(ON|OFF)GLOBAL|(ON|OFF)INCLUDE|(ON|OFF)INLINE|(ON|OFF)LISTING|(ON|OFF)LOCAL|(ON|OFF)LOG|(ON|OFF)MACRO|(ON|OFF)MARGIN|(ON|OFF)MULTI|(ON|OFF)NESTCOM|(ON|OFF)PUT|(ON|OFF)RECURSE|(ON|OFF)SYMLIST|(ON|OFF)SYMXREF|(ON|OFF)UELLIST|(ON|OFF)UELXREF|(ON|OFF)UNDF|(ON|OFF)VERBATIM|(ON|OFF)WARNING|(ON|OFF)UPPER|PHANTOM|PREFIXPATH|PROTECT|PURGE|REMARK|SET|SET(ARGS|COMPS|DDLIST|ENV|GLOBAL|LOCAL|NAMES)|SHIFT|SHOW|SINGLE|STARS|STITLE|STOP|SYSINCLUDE|TERMINATE|TITLE|UNLOAD|USE205|USE225|USE999|VERSION|WARNING)\b</string>
 			<key>name</key>
 			<string>keyword.other.special-method.gms</string>
 		</dict>
@@ -342,7 +337,7 @@
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.control.gms</string>
+					<string>storage.type.gms</string>
 				</dict>
 			</dict>
 			<key>end</key>
@@ -375,9 +370,9 @@
 			<array>
 				<dict>
 					<key>match</key>
-					<string>(?&lt;![\d.])(-)?\d+(\.\d*)?([eE]-?\d+)?|(-)?\.\d+([eE]-?\d+)?|(\.)?</string>
+					<string>(?&lt;![\d.])\b\d+(\.\d+)?([eE]-?\d+)?|\.\d+([eE]-?\d+)?</string>
 					<key>name</key>
-					<string>constant.numeric.lua</string>
+					<string>constant.numeric.gms</string>
 				</dict>
 				<dict>
 					<key>include</key>
@@ -388,13 +383,18 @@
 		<key>set</key>
 		<dict>
 			<key>begin</key>
-			<string>(?i)(^|;)\s*\b(SETS?)\s+</string>
+			<string>(?i)(^|;)\s*\b(SINGLETON\s+)?\b(SETS?)\s+</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.control.gms</string>
+					<string>storage.modifier.gms</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>storage.type.gms</string>
 				</dict>
 			</dict>
 			<key>end</key>
@@ -446,7 +446,7 @@
 		<key>suffix</key>
 		<dict>
 			<key>match</key>
-			<string>(?i)\.(L|LO|UP|FX|SCALE|PRIOR|PC|PS|PW|TM|BM|CASE|DATE|IFILE|OFILE|PAGE|RDATE|RFILE|RTIME|SFILE|TIME|TITLE|TS|TL|TE|TF|LJ|NJ|SJ|TJ|LW|NW|SW|TW|ND|NR|NZ|CC|HDCC|TLCC|LL|HDLL|TLLL|LP|WS)\b</string>
+			<string>(?i)\.(L|LO|UP|FX|SCALE|VAL|PRIOR|PC|PS|PW|TM|BM|CASE|DATE|IFILE|OFILE|PAGE|RDATE|RFILE|RTIME|SFILE|TIME|TITLE|TS|TL|TE|TF|LJ|NJ|SJ|TJ|LW|NW|SW|TW|ND|NR|NZ|CC|HDCC|TLCC|LL|HDLL|TLLL|LP|WS)\b</string>
 			<key>name</key>
 			<string>keyword.gms</string>
 		</dict>
@@ -459,7 +459,7 @@
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.control.gms</string>
+					<string>storage.type.gms</string>
 				</dict>
 			</dict>
 			<key>end</key>
@@ -477,13 +477,18 @@
 		<key>variable</key>
 		<dict>
 			<key>begin</key>
-			<string>(?i)(^|;)\s*(\b(VARIABLES?)|(\bPOSITIVE\s+VARIABLES?))\s+</string>
+			<string>(?i)(^|;)\s*\b((POSITIVE|FREE|NEGATIVE)\s+)?\b(VARIABLES?)</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.control.gms</string>
+					<string>storage.modifier.gms</string>
+				</dict>
+				<key>4</key>
+				<dict>
+					<key>name</key>
+					<string>storage.type.gms</string>
 				</dict>
 			</dict>
 			<key>end</key>
